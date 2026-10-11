@@ -1,6 +1,6 @@
 ## 🧩 farfarfun-utools
 
-[farfarfun](https://github.com/farfarfun) 的 **uTools 插件**产品线。每个插件都遵循同一套取向：
+[farfarfun](https://github.com/farfarfun) 的 **uTools 插件**产品线，仓库攒够、功能做完善后从主组织独立出来的子组织。每个插件都遵循同一套取向：
 
 - **本地优先** — 数据存在 uTools 的 `dbStorage` 里，不需要账号、不需要自建服务端
 - **主搜索框集成** — 在 uTools 主输入框里直接搜索、回车就出结果，不必先进插件界面
@@ -42,6 +42,8 @@ sh build.sh          # 跑测试与校验，产物输出到 utools/
 - `utools-funchat` 需要你自己配置大模型 API Key，对话直接从本机发往你指定的服务商
 
 ## 🗂️ 其他 farfarfun 组织
+
+farfarfun 是一主多子结构：新东西默认先在主组织孵化，等某个模块仓库攒多、功能完善后独立成子组织；一开始就确定会自成一条产品线的，直接建子组织。
 
 | 组织 | 产物 |
 |------|------|
