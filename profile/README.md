@@ -46,7 +46,7 @@ sh build.sh          # 跑测试与校验，产物输出到 utools/
 | 组织 | 产物 |
 |------|------|
 | [farfarfun](https://github.com/farfarfun) | 通用 Python 工具链：`far*` 基础库 + `fun*` 领域库 |
-| [farfarfun-fundrive](https://github.com/farfarfun-fundrive) | 网盘 / 云存储：统一接口框架 + 各网盘驱动 |
+| [farfarfun-drive](https://github.com/farfarfun-drive) | 网盘 / 云存储：统一接口框架 + 各网盘驱动 |
 | [farfarfun-skill](https://github.com/farfarfun-skill) | 自研 AI Agent Skill（项目治理、服务规范、开发规范） |
 | [farfarfun-skills](https://github.com/farfarfun-skills) | Skill 聚合镜像，每小时跟上游同步并镜像到 Gitee |
 
