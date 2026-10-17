@@ -1,0 +1,88 @@
+name: Screenshots (reusable)
+
+# 各插件仓库共用的截图流水线：重跑 scripts/screenshots.mjs，图真的变了才提交回分支。
+# 调用方只留一个十来行的壳，例子见任意插件仓库的 .github/workflows/screenshots.yml。
+#
+# 为什么做成可复用而不是各抄一份：这套流程里真正因仓库而异的只有 pnpm 版本，其余
+# （装字体、找浏览器、拍照、改了才提交）四个仓库一字不差。抄四份的下场看
+# scripts/cdp.mjs —— 它上线第一天就因为一个临时目录前缀分叉成了两种内容。
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: 跑工具链的 Node 版本。插件本身跑在 uTools 内置的 Chromium 里，与此无关。
+        type: string
+        default: '22'
+      pnpm-version:
+        description: pnpm 版本。留空表示按 package.json#packageManager 取（推荐）。
+        type: string
+        default: ''
+      branch:
+        description: 把截图提交回哪个分支。
+        type: string
+        default: master
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    # 调用方也必须声明 contents: write —— 被调用的工作流只能缩小、不能放大调用方给的权限，
+    # 这里写出来是为了把「它要往仓库里写东西」这件事摆在明面上。
+    permissions:
+      contents: write
+
+    steps:
+      # 标签事件默认检出的是标签指向的那个游离状态，而我们要把图提交回分支。
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+
+      # 拆成两步，是因为 pnpm/action-setup 不接受「既给了 version 又有 packageManager」，
+      # 而「给个空 version 是否等于没给」没有白纸黑字的保证。宁可多写两行也不赌这个。
+      - if: inputs.pnpm-version == ''
+        uses: pnpm/action-setup@v4
+      - if: inputs.pnpm-version != ''
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ inputs.pnpm-version }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # runner 自带的字体没有中日韩和 emoji，缺了界面全是豆腐块。
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends fonts-noto-cjk fonts-noto-color-emoji
+          fc-cache -f
+
+      # 没有浏览器时 scripts/screenshots.mjs 会跳过并正常退出（本地不该因为没装 Chrome
+      # 就跑不了别的命令），但在 CI 里「静默跳过」等于这趟白跑，所以先找出来，找不到就红。
+      - name: Locate Chrome
+        run: |
+          test -x /usr/bin/google-chrome || {
+            echo "error: runner 上没有 Google Chrome，截图会被静默跳过" >&2
+            exit 1
+          }
+          echo "CHROME_PATH=/usr/bin/google-chrome" >> "$GITHUB_ENV"
+
+      # 脚本自己会先 pnpm build，拍的是真正的打包产物，不是开发服务器。
+      - name: Take screenshots
+        run: pnpm screenshots
+
+      # 截图是可重复的（时钟冻在固定时刻、动画钉死），界面没动就不会有 diff，
+      # 也就不会有这笔提交 —— 不会每次发版都多一条噪音。
+      - name: Commit if changed
+        run: |
+          git add docs/screenshots
+          if git diff --cached --quiet; then
+            echo "界面没变，截图一个字节都没动，不提交"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "docs: 刷新界面截图（${{ github.ref_type == 'tag' && github.ref_name || '手动触发' }}）"
+          git push origin HEAD:${{ inputs.branch }}
