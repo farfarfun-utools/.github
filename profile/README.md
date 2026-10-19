@@ -1,4 +1,11 @@
-<img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/utools-128.png" alt="farfarfun-utools" width="72">
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+            srcset="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/lockup-on-dark/utools-160.png">
+    <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/lockup/utools-160.png"
+         height="80" alt="farfarfun-utools">
+  </picture>
+</p>
 
 ## 🧩 farfarfun-utools
 
