@@ -64,7 +64,7 @@ jobs:
           done
           if [[ "$(fc-match -f '%{family}' 'Noto Color Emoji')" != *"Noto Color Emoji"* ]]; then
             curl -fsSL --retry 2 --connect-timeout 10 --max-time 60 \
-              "https://raw.githubusercontent.com/googlefonts/noto-emoji/e20cbc2bbec1926686be9f9bee7d1d2cfa1fea0e/fonts/NotoColorEmoji.ttf" \
+              "https://raw.githubusercontent.com/googlefonts/noto-emoji/e20cbc2bbec1926686be9f9bee7d1d2cfa1fea0e/2D/fonts/NotoColorEmoji.ttf" \
               -o "$HOME/.local/share/fonts/NotoColorEmoji.ttf"
           fi
           fc-cache -f
