@@ -52,11 +52,21 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      # runner 自带的字体没有中日韩和 emoji，缺了界面全是豆腐块。
+      # 直接取固定版本的官方字体，避免 Ubuntu 镜像的大字体包下载拖住截图。
       - name: Install fonts
+        timeout-minutes: 5
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends fonts-noto-cjk fonts-noto-color-emoji
+          mkdir -p "$HOME/.local/share/fonts"
+          for weight in Regular Bold; do
+            curl -fsSL --retry 2 --connect-timeout 10 --max-time 60 \
+              "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-${weight}.otf" \
+              -o "$HOME/.local/share/fonts/NotoSansCJKsc-${weight}.otf"
+          done
+          if [[ "$(fc-match -f '%{family}' 'Noto Color Emoji')" != *"Noto Color Emoji"* ]]; then
+            curl -fsSL --retry 2 --connect-timeout 10 --max-time 60 \
+              "https://raw.githubusercontent.com/googlefonts/noto-emoji/e20cbc2bbec1926686be9f9bee7d1d2cfa1fea0e/fonts/NotoColorEmoji.ttf" \
+              -o "$HOME/.local/share/fonts/NotoColorEmoji.ttf"
+          fi
           fc-cache -f
 
       # 没有浏览器时 scripts/screenshots.mjs 会跳过并正常退出（本地不该因为没装 Chrome
