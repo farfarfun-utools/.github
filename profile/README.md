@@ -32,6 +32,8 @@
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funimage-64.png" alt="" width="40"> [utools-funimage](https://github.com/farfarfun-utools/utools-funimage) | **[图片工坊](https://farfarfun.github.io/packages/utools-funimage/)** — 本地批量压缩、编辑、预览及合并图片 | 原生 HTML/CSS/JavaScript + Canvas |
 | [utools-plugins](https://github.com/farfarfun-utools/utools-plugins) | **插件总索引** — 汇总本组织全部插件的导航表与安装方式，可由此入口选择插件 | — |
 
+各插件提供对应的 AI/MCP 工具；工具清单、调用行为和数据边界见各插件 README。第三方 Agent 需由用户开启 uTools MCP 服务。
+
 ---
 
 ## 🚀 安装
