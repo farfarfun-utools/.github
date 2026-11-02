@@ -37,7 +37,9 @@ try {
       ctx.fillStyle = '#f4f8f5'; ctx.fillRect(450, 130, 350, 150);
       ctx.fillStyle = '#5caa92'; ctx.fillRect(450, 310, 350, 140);
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-      addBrowserFiles([new File([blob], '示例图片.png', { type: 'image/png' })]);
+      const transfer = new DataTransfer();
+      transfer.items.add(new File([blob], '示例图片.png', { type: 'image/png' }));
+      document.dispatchEvent(new DragEvent('drop', { dataTransfer: transfer, bubbles: true, cancelable: true }));
     })()`)
     await session.waitForExpression('document.querySelector("#preview-image").naturalWidth > 0')
   } else {
