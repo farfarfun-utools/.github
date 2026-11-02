@@ -13,7 +13,7 @@
 
 - **本地优先** — 按需使用本地存储或 uTools 的 `dbStorage`，无需注册账号，也无需自建服务端
 - **主搜索框集成** — 可在 uTools 主输入框中直接检索并回车获取结果，无需先打开插件界面
-- **按需选技术栈** — 各插件使用 Vue 3 + Vite 或原生 HTML/CSS/JavaScript，保持安装包精简
+- **统一构建前端** — 各插件由 Vite 构建；按功能选用 Vue 3/TypeScript 或原生 JavaScript
 
 ---
 
@@ -28,8 +28,8 @@
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funcalendar-64.png" alt="" width="40"> [utools-funcalendar](https://github.com/farfarfun-utools/utools-funcalendar) | **[时光常伴](https://farfarfun.github.io/packages/utools-funcalendar/)** — 离线阳历、农历、节气与每日黄历宜忌，支持按嫁娶、搬家、开市等事项择吉 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funqr-64.png" alt="" width="40"> [utools-funqr](https://github.com/farfarfun-utools/utools-funqr) | **[码上生花](https://farfarfun.github.io/packages/utools-funqr/)** — 离线二维码与文本互转，配色、渐变、码点与 Logo 美化，导出 PNG / SVG | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funcalc-64.png" alt="" width="40"> [utools-funcalc](https://github.com/farfarfun-utools/utools-funcalc) | **[算有所得](https://farfarfun.github.io/packages/utools-funcalc/)** — 支持变量、矩阵、LaTeX 排版与持久化历史的离线计算笔记本 | Vue 3 + TypeScript + mathjs + KaTeX |
-| <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funvideo-64.png" alt="" width="40"> [utools-funvideo](https://github.com/farfarfun-utools/utools-funvideo) | **[视频工坊](https://farfarfun.github.io/packages/utools-funvideo/)** — 本地批量压缩、裁剪、转换、抽帧与音频处理 | 原生 HTML/CSS/JavaScript + uTools FFmpeg 扩展 |
-| <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funimage-64.png" alt="" width="40"> [utools-funimage](https://github.com/farfarfun-utools/utools-funimage) | **[图片工坊](https://farfarfun.github.io/packages/utools-funimage/)** — 本地批量压缩、编辑、预览及合并图片 | 原生 HTML/CSS/JavaScript + Canvas |
+| <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funvideo-64.png" alt="" width="40"> [utools-funvideo](https://github.com/farfarfun-utools/utools-funvideo) | **[视频工坊](https://farfarfun.github.io/packages/utools-funvideo/)** — 本地批量压缩、裁剪、转换、抽帧与音频处理 | Vite + 原生 JavaScript + uTools FFmpeg 扩展 |
+| <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funimage-64.png" alt="" width="40"> [utools-funimage](https://github.com/farfarfun-utools/utools-funimage) | **[图片工坊](https://farfarfun.github.io/packages/utools-funimage/)** — 本地批量压缩、编辑、预览及合并图片 | Vite + 原生 JavaScript + Canvas |
 | [utools-plugins](https://github.com/farfarfun-utools/utools-plugins) | **插件总索引** — 汇总本组织全部插件的导航表与安装方式，可由此入口选择插件 | — |
 
 各插件提供对应的 AI/MCP 工具；工具清单、调用行为和数据边界见各插件 README。第三方 Agent 需由用户开启 uTools MCP 服务。
@@ -38,7 +38,7 @@
 
 ## 🚀 安装
 
-从各插件的 GitHub Release 下载 `.upxs` 导入 uTools。开发版可按对应仓库 README 在开发者工具中载入 `utools/plugin.json`；构建方式和环境要求以各仓库说明为准。
+从各插件的 GitHub Release 下载 `.upxs` 导入 uTools。开发版先运行仓库根目录的 `sh build.sh`，再在开发者工具中载入 `utools/plugin.json`；构建方式和环境要求以各仓库说明为准。
 
 ## 🔐 关于隐私
 
