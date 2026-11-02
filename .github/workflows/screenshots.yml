@@ -21,6 +21,10 @@ on:
         description: 把截图提交回哪个分支。
         type: string
         default: master
+      static:
+        description: 无需 pnpm 构建的静态 uTools 插件。
+        type: boolean
+        default: false
 
 jobs:
   screenshots:
@@ -36,21 +40,40 @@ jobs:
         with:
           ref: ${{ inputs.branch }}
 
+      - if: inputs.static
+        uses: actions/checkout@v4
+        with:
+          repository: farfarfun-utools/.github
+          ref: master
+          path: .screenshot-tools
+      - if: inputs.static
+        uses: actions/checkout@v4
+        with:
+          repository: farfarfun-utools/utools-shots
+          ref: master
+          path: .screenshot-tools/utools-shots
+
       # 拆成两步，是因为 pnpm/action-setup 不接受「既给了 version 又有 packageManager」，
       # 而「给个空 version 是否等于没给」没有白纸黑字的保证。宁可多写两行也不赌这个。
-      - if: inputs.pnpm-version == ''
+      - if: ${{ !inputs.static && inputs.pnpm-version == '' }}
         uses: pnpm/action-setup@v4
-      - if: inputs.pnpm-version != ''
+      - if: ${{ !inputs.static && inputs.pnpm-version != '' }}
         uses: pnpm/action-setup@v4
         with:
           version: ${{ inputs.pnpm-version }}
 
-      - uses: actions/setup-node@v4
+      - if: '!inputs.static'
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
           cache: pnpm
+      - if: inputs.static
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
 
-      - run: pnpm install --frozen-lockfile
+      - if: '!inputs.static'
+        run: pnpm install --frozen-lockfile
 
       # 直接取固定版本的官方字体，避免 Ubuntu 镜像的大字体包下载拖住截图。
       - name: Install fonts
@@ -81,7 +104,11 @@ jobs:
 
       # 脚本自己会先 pnpm build，拍的是真正的打包产物，不是开发服务器。
       - name: Take screenshots
+        if: '!inputs.static'
         run: pnpm screenshots
+      - name: Take static plugin screenshots
+        if: inputs.static
+        run: node .screenshot-tools/scripts/static-screenshots.mjs
 
       # 截图是可重复的（时钟冻在固定时刻、动画钉死），界面没动就不会有 diff，
       # 也就不会有这笔提交 —— 不会每次发版都多一条噪音。
