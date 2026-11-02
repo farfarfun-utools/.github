@@ -25,7 +25,7 @@ try {
   await session.send('Page.addScriptToEvaluateOnNewDocument', { source: bridge })
   await session.send('Emulation.setDeviceMetricsOverride', { width: 1280, height: 800, deviceScaleFactor: 2, mobile: false })
   await browser.navigate()
-  await session.waitForExpression('document.readyState === "complete" && document.querySelector("#job-list")')
+  await session.waitForExpression('document.readyState === "complete" && !!document.querySelector("#job-list")')
 
   if (name === 'utools-funimage') {
     await session.evaluate(`(async () => {
