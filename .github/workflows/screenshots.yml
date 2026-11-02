@@ -22,7 +22,7 @@ on:
         type: string
         default: master
       static:
-        description: 无需 pnpm 构建的静态 uTools 插件。
+        description: 使用 npm 和组织统一截图脚本的 uTools 插件。
         type: boolean
         default: false
 
@@ -106,7 +106,10 @@ jobs:
       - name: Take screenshots
         if: '!inputs.static'
         run: pnpm screenshots
-      - name: Take static plugin screenshots
+      - name: Build npm plugin
+        if: inputs.static
+        run: sh build.sh
+      - name: Take npm plugin screenshots
         if: inputs.static
         run: node .screenshot-tools/scripts/static-screenshots.mjs
 

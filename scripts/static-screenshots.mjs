@@ -1,16 +1,16 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
-import { pathToFileURL } from 'node:url'
 import { launch } from '../utools-shots/cdp.mjs'
+import { serve } from '../utools-shots/shared.mjs'
 
 const root = process.cwd()
 const name = JSON.parse(fs.readFileSync('package.json', 'utf8')).name
 if (!['utools-funimage', 'utools-funvideo'].includes(name)) throw new Error(`Unsupported static plugin: ${name}`)
 const out = path.join(root, 'docs/screenshots')
 fs.mkdirSync(out, { recursive: true })
-const url = pathToFileURL(path.join(root, 'utools/index.html')).href
-const browser = await launch({ url })
+const server = await serve(path.join(root, 'utools/dist'))
+const browser = await launch({ url: server.origin })
 const { session } = browser
 const errors = []
 session.on('Runtime.exceptionThrown', event => errors.push(event.exceptionDetails.exception?.description || event.exceptionDetails.text))
@@ -68,4 +68,5 @@ try {
   assert.deepEqual(errors, [], 'browser errors')
 } finally {
   await browser.close()
+  await server.close()
 }
