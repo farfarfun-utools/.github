@@ -13,7 +13,7 @@
 
 - **本地优先** — 按需使用本地存储或 uTools 的 `dbStorage`，无需注册账号，也无需自建服务端
 - **主搜索框集成** — 可在 uTools 主输入框中直接检索并回车获取结果，无需先打开插件界面
-- **Vue 3 + Vite** — 统一技术栈，采用 Composition API 组织界面与业务状态
+- **按需选技术栈** — 各插件使用 Vue 3 + Vite 或原生 HTML/CSS/JavaScript，保持安装包精简
 
 ---
 
@@ -21,32 +21,22 @@
 
 | 插件 | 用途 | 技术栈 |
 |------|------|--------|
-| <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funchat-64.png" alt="" width="40"> [utools-funchat](https://github.com/farfarfun-utools/utools-funchat) | **[言来语往](https://farfarfun.github.io/packages/utools-funchat/)** — AI 聊天， 支持多角色 AI 对话、内置角色市场、话题回溯与一键导出 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
+| <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funchat-64.png" alt="" width="40"> [utools-funchat](https://github.com/farfarfun-utools/utools-funchat) | **[言来语往](https://farfarfun.github.io/packages/utools-funchat/)** — 多角色 AI 对话、图片生成、角色市场、话题回溯与一键导出 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/fundoc-64.png" alt="" width="40"> [utools-fundoc](https://github.com/farfarfun-utools/utools-fundoc) | **[落笔成章](https://farfarfun.github.io/packages/utools-fundoc/)** — Markdown 文档， 本地管理文档，支持 LaTeX 公式、多级目录与跨设备同步 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funlink-64.png" alt="" width="40"> [utools-funlink](https://github.com/farfarfun-utools/utools-funlink) | **[一链即达](https://farfarfun.github.io/packages/utools-funlink/)** — 网址收藏与导航， 支持二级分类与拖拽排序、收集箱、废纸篓、站内搜索占位符与指定浏览器打开 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funotp-64.png" alt="" width="40"> [utools-funotp](https://github.com/farfarfun-utools/utools-funotp) | **[密钥随行](https://farfarfun.github.io/packages/utools-funotp/)** — 两步验证码， 本地离线生成 TOTP / HOTP，兼容 Google Authenticator，并支持扫码导入与 WebDav 备份 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funcalendar-64.png" alt="" width="40"> [utools-funcalendar](https://github.com/farfarfun-utools/utools-funcalendar) | **[时光常伴](https://farfarfun.github.io/packages/utools-funcalendar/)** — 离线阳历、农历、节气与每日黄历宜忌，支持按嫁娶、搬家、开市等事项择吉 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funqr-64.png" alt="" width="40"> [utools-funqr](https://github.com/farfarfun-utools/utools-funqr) | **[码上生花](https://farfarfun.github.io/packages/utools-funqr/)** — 离线二维码与文本互转，配色、渐变、码点与 Logo 美化，导出 PNG / SVG | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funcalc-64.png" alt="" width="40"> [utools-funcalc](https://github.com/farfarfun-utools/utools-funcalc) | **[算有所得](https://farfarfun.github.io/packages/utools-funcalc/)** — 支持变量、矩阵、LaTeX 排版与持久化历史的离线计算笔记本 | Vue 3 + TypeScript + mathjs + KaTeX |
+| <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funvideo-64.png" alt="" width="40"> [utools-funvideo](https://github.com/farfarfun-utools/utools-funvideo) | **[视频工坊](https://farfarfun.github.io/packages/utools-funvideo/)** — 本地批量压缩、裁剪、转换、抽帧与音频处理 | 原生 HTML/CSS/JavaScript + uTools FFmpeg 扩展 |
+| <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funimage-64.png" alt="" width="40"> [utools-funimage](https://github.com/farfarfun-utools/utools-funimage) | **[图片工坊](https://farfarfun.github.io/packages/utools-funimage/)** — 本地批量压缩、编辑、预览及合并图片 | 原生 HTML/CSS/JavaScript + Canvas |
 | [utools-plugins](https://github.com/farfarfun-utools/utools-plugins) | **插件总索引** — 汇总本组织全部插件的导航表与安装方式，可由此入口选择插件 | — |
 
 ---
 
 ## 🚀 安装
 
-这些插件采用同一套构建入口，通过 uTools 开发者模式载入：
-
-```bash
-git clone https://github.com/farfarfun-utools/utools-funotp.git
-cd utools-funotp
-pnpm install
-sh build.sh          # 执行测试与校验，产物输出至 utools/
-```
-
-随后在 uTools 中进入「插件应用市场 → 开发者工具 → 新建项目」，载入 `utools/plugin.json`。
-`build.sh` 执行各插件的测试、类型检查与构建校验，失败即中断。
-Node.js 版本以各仓库 `package.json#engines` 为准（时光常伴、码上生花要求 ≥ 22.22.2），
-pnpm 版本由 `package.json#packageManager` 指定。具体配置项请参见各插件的 README。
+从各插件的 GitHub Release 下载 `.upxs` 导入 uTools。开发版可按对应仓库 README 在开发者工具中载入 `utools/plugin.json`；构建方式和环境要求以各仓库说明为准。
 
 ## 🔐 关于隐私
 
@@ -56,6 +46,7 @@ pnpm 版本由 `package.json#packageManager` 指定。具体配置项请参见�
 - `utools-funotp` 的验证码完全在本机依据 RFC 4226 / RFC 6238 计算，插件自身不访问任何第三方服务（WebDav 备份除外，需手动配置）
 - `utools-funlink` 的书签数据仅保存在 uTools `dbStorage` 中，不会上传
 - `utools-funchat` 需自行配置大模型 API Key，对话请求由本机直接发往所指定的服务商
+- `utools-funvideo` 与 `utools-funimage` 在本机处理文件，不上传视频或图片，也不保存文件历史
 
 ## 🗂️ 其他 farfarfun 组织
 
