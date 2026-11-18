@@ -53,6 +53,8 @@ jobs:
 现有实现的做法是把 `Date.now()` 冻在固定时刻、关掉 CSS 过渡、把倒计时这类随时间
 变的动画单独钉到固定进度。
 
+图片工坊和视频工坊的截图按插件声明的窗口高度拍摄，桌面宽 800 CSS 像素，窄窗宽 375 CSS 像素。图片队列示例采用 SpaceX 的 DSCOVR 发射照片和 NASA 的 Eileen Collins 肖像，均为公有领域素材。[发射照片来源](https://www.flickr.com/photos/spacexphotos/16511594820/) · [肖像来源](https://flic.kr/p/r9qvLn) · [scikit-image 素材说明](https://github.com/scikit-image/scikit-image/blob/v0.25.2/skimage/data/_fetchers.py)
+
 ## 关于 farfarfun-utools
 
 [farfarfun](https://github.com/farfarfun) 的 uTools 插件产品线：本地优先、集成 uTools
