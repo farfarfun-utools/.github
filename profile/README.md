@@ -45,8 +45,8 @@
 - `utools-funqr` 的二维码生成与识别完全在本机完成，不上传图片或文本、不保存内容历史，仅保存主题偏好
 
 - `utools-funcalendar` 的历法、节气和宜忌查询完全离线，运行时不请求外部资源；仅在本机保存主题偏好，黄历宜忌仅作民俗参考
-- `utools-funotp` 的验证码完全在本机依据 RFC 4226 / RFC 6238 计算，插件自身不访问任何第三方服务（WebDav 备份除外，需手动配置）
-- `utools-funlink` 的书签数据仅保存在 uTools `dbStorage` 中，不会上传
+- `utools-funotp` 在本机计算验证码。开启 uTools 数据同步后，明文密钥可随账号同步；手动执行 WebDAV 备份也会将明文备份上传到配置的服务器
+- `utools-funlink` 将书签保存在 uTools 数据库中，开启 uTools 数据同步后可随账号同步。抓取图标和检查链接会访问对应网站，手动 WebDAV 备份会将书签上传到配置的服务器
 - `utools-funchat` 需自行配置大模型 API Key，对话请求由本机直接发往所指定的服务商
 - `utools-funvideo` 与 `utools-funimage` 在本机处理文件，不上传视频或图片，也不保存文件历史
 

@@ -5,7 +5,7 @@ import { launch } from '../utools-shots/cdp.mjs'
 import { serve } from '../utools-shots/shared.mjs'
 
 const root = process.cwd()
-const name = JSON.parse(fs.readFileSync('package.json', 'utf8')).name
+const name = JSON.parse(fs.readFileSync('package.json', 'utf8')).name.replace(/^@farfarfun\//, '')
 if (!['utools-funimage', 'utools-funvideo'].includes(name)) throw new Error(`Unsupported static plugin: ${name}`)
 const out = path.join(root, 'docs/screenshots')
 fs.mkdirSync(out, { recursive: true })
