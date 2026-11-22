@@ -30,7 +30,8 @@
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funcalc-64.png" alt="" width="40"> [utools-funcalc](https://github.com/farfarfun-utools/utools-funcalc) | **[算有所得](https://farfarfun.github.io/packages/utools-funcalc/)** — 主搜索框即时计算，支持变量、矩阵、LaTeX 排版与持久化历史的离线笔记本 | Vue 3 + TypeScript + mathjs + KaTeX |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funvideo-64.png" alt="" width="40"> [utools-funvideo](https://github.com/farfarfun-utools/utools-funvideo) | **[视频工坊](https://farfarfun.github.io/packages/utools-funvideo/)** — 本地批量压缩、裁剪、抽帧、制作视频缩略图拼图与处理音频 | Vite + 原生 JavaScript + uTools FFmpeg 扩展 |
 | <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/mark/funimage-64.png" alt="" width="40"> [utools-funimage](https://github.com/farfarfun-utools/utools-funimage) | **[图片工坊](https://farfarfun.github.io/packages/utools-funimage/)** — 本地批量压缩、编辑、预览图片，可调整队列顺序后拼图或合并为 PDF、GIF | Vite + 原生 JavaScript + Canvas |
-| <img src="https://raw.githubusercontent.com/farfarfun/farfarfun-web/master/brand/png/mark/fundata-64.png" alt="" width="40"> [utools-fundata](https://github.com/farfarfun-utools/utools-fundata) | **[数形万变](https://github.com/farfarfun-utools/utools-fundata)** — 离线多格式数据处理工作台，支持 JSON/YAML/TOML/XML/CSV/Protobuf、文本/树形/栏列/表格/差异视图、JSONPath、多语言类型生成与 JWT 工具箱 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
+| <img src="https://raw.githubusercontent.com/farfarfun/farfarfun-web/master/brand/png/mark/funjson-64.png" alt="" width="40"> [utools-funjson](https://github.com/farfarfun-utools/utools-funjson) | **[JSON工坊](https://github.com/farfarfun-utools/utools-funjson)** — 离线 JSON 五视图工作台，支持编辑/树形/递归嵌套表格/栏列/语义对比、JSONPath 查询、智能修复与多语言类型生成 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
+| <img src="https://raw.githubusercontent.com/farfarfun/farfarfun-web/master/brand/png/mark/fundata-64.png" alt="" width="40"> [utools-fundata](https://github.com/farfarfun-utools/utools-fundata) | **[数形万变](https://github.com/farfarfun-utools/utools-fundata)** — 离线 10 合 1 开发者数据工具箱，支持 10 格式互转、编解码与时间戳、JWT 验签签发、Protobuf/SQL、哈希/UUID、正则、Cron、色值进制与文本批处理 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | [utools-plugins](https://github.com/farfarfun-utools/utools-plugins) | **插件总索引** — 汇总本组织全部插件的导航表与安装方式，可由此入口选择插件 | — |
 
 各插件提供对应的 AI/MCP 工具；工具清单、调用行为和数据边界见各插件 README。第三方 Agent 需由用户开启 uTools MCP 服务。
@@ -50,7 +51,8 @@
 - `utools-funlink` 将书签保存在 uTools 数据库中，开启 uTools 数据同步后可随账号同步。抓取图标和检查链接会访问对应网站，手动 WebDAV 备份会将书签上传到配置的服务器
 - `utools-funchat` 需自行配置大模型 API Key，对话请求由本机直接发往所指定的服务商
 - `utools-funvideo` 与 `utools-funimage` 在本机处理文件，不上传视频或图片，也不保存文件历史
-- `utools-fundata` 默认完全离线在本地解析、转换、生成类型与解码 JWT；多标签页、历史快照与偏好保存在本机，仅在用户手动触发外部 AI 修复时向所配置服务商发送请求
+- `utools-funjson` 默认完全离线在本地解析、编辑、嵌套表格浏览、对比与生成多语言类型；多标签页与历史快照保存在本机，仅在手动触发外部 AI 修复时向所配置服务商发送请求
+- `utools-fundata` 的格式互转、编解码、JWT 验签签发、Protobuf/SQL 格式化、哈希/UUID、正则、Cron 与单位换算完全在本机离线完成，不联网也不上传数据
 
 ## 🗂️ 其他 farfarfun 组织
 
