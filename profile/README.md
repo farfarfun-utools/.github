@@ -33,6 +33,8 @@
 | <img src="https://raw.githubusercontent.com/farfarfun/farfarfun-web/master/brand/png/mark/funjson-64.png" alt="" width="40"> [utools-funjson](https://github.com/farfarfun-utools/utools-funjson) | **[JSON工坊](https://github.com/farfarfun-utools/utools-funjson)** — 离线 JSON 五视图工作台，支持编辑/树形/递归嵌套表格/栏列/语义对比、JSONPath 查询、智能修复与多语言类型生成 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/farfarfun-web/master/brand/png/mark/fundata-64.png" alt="" width="40"> [utools-fundata](https://github.com/farfarfun-utools/utools-fundata) | **[数形万变](https://farfarfun.github.io/packages/utools-fundata/)** — 离线 15 合 1 开发者数据工具箱，支持 10 格式互转、SQL、Protobuf、编解码、JWT、哈希/HMAC、UUID、时间戳、Cron、正则、色值、进制、字节、文本对比与批处理 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://raw.githubusercontent.com/farfarfun/farfarfun-web/master/brand/png/mark/funcolor-64.png" alt="" width="40"> [utools-funcolor](https://github.com/farfarfun-utools/utools-funcolor) | **[拾色生花](https://github.com/farfarfun-utools/utools-funcolor)** — 离线颜色助手与配色工作室，支持屏幕/图片吸管取色与主色板提取、13 格式转换、OKLCH 色阶、配色方案、CSS 渐变、WCAG 对比度、色盲模拟与传统色库 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
+| <img src="https://raw.githubusercontent.com/farfarfun/farfarfun-web/master/brand/png/mark/funmeme-64.png" alt="" width="40"> [utools-funmeme](https://github.com/farfarfun-utools/utools-funmeme) | **[趣图生花](https://github.com/farfarfun-utools/utools-funmeme)** — 表情包检索与梗图制作工坊，支持公开接口斗图、手绘梗图加字、8 款文字大字报表情与 Emoji/颜文字贴纸库 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
+| <img src="https://raw.githubusercontent.com/farfarfun/farfarfun-web/master/brand/png/mark/funtime-64.png" alt="" width="40"> [utools-funtime](https://github.com/farfarfun-utools/utools-funtime) | **[分秒必争](https://github.com/farfarfun-utools/utools-funtime)** — 离线时间助手，支持多任务倒计时与番茄钟、毫秒秒表、置顶桌面悬浮小窗、28 城世界时钟与跨时区会议推演 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | [utools-plugins](https://github.com/farfarfun-utools/utools-plugins) | **插件总索引** — 汇总本组织全部插件的导航表与安装方式，可由此入口选择插件 | — |
 
 各插件提供对应的 AI/MCP 工具；工具清单、调用行为和数据边界见各插件 README。第三方 Agent 需由用户开启 uTools MCP 服务。
@@ -55,6 +57,8 @@
 - `utools-funjson` 默认完全离线在本地解析、编辑、嵌套表格浏览、对比与生成多语言类型；多标签页与历史快照保存在本机，仅在手动触发外部 AI 修复时向所配置服务商发送请求
 - `utools-fundata` 的格式互转、编解码、JWT 验签签发、Protobuf/SQL 格式化、哈希/UUID、正则、Cron 与单位换算完全在本机离线完成，不联网也不上传数据
 - `utools-funcolor` 的屏幕取色、图片主色板提取、色值转换、色阶配色、渐变与对比度/色盲模拟完全在本机离线完成，不联网也不上传图片；仅在本机保存收藏夹、取色历史与主题偏好
+- `utools-funmeme` 的梗图加字、文字表情生成、内置模板与 Emoji/颜文字库完全在本机离线完成；仅在用户手动触发「联网拉取」时访问所选公开接口（Imgflip/GIPHY/Tenor/自定义 HTTPS 接口），可选 API Key 仅存本机
+- `utools-funtime` 的倒计时、番茄钟、秒表、桌面悬浮小窗、世界时钟与时间推算完全在本机离线完成，不联网也不上传数据
 
 ## 🗂️ 其他 farfarfun 组织
 
