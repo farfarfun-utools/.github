@@ -35,6 +35,7 @@
 | <img src="https://farfarfun.com/brand/png/mark/funcolor-64.png" alt="" width="40"> [utools-funcolor](https://github.com/farfarfun-utools/utools-funcolor) | **[拾色生花](https://github.com/farfarfun-utools/utools-funcolor)** — 离线颜色助手与配色工作室，支持屏幕/图片吸管取色与主色板提取、13 格式转换、OKLCH 色阶、配色方案、CSS 渐变、WCAG 对比度、色盲模拟与传统色库 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://farfarfun.com/brand/png/mark/funmeme-64.png" alt="" width="40"> [utools-funmeme](https://github.com/farfarfun-utools/utools-funmeme) | **[趣图生花](https://github.com/farfarfun-utools/utools-funmeme)** — 表情包检索与梗图制作工坊，支持公开接口斗图、手绘梗图加字、8 款文字大字报表情与 Emoji/颜文字贴纸库 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
 | <img src="https://farfarfun.com/brand/png/mark/funtime-64.png" alt="" width="40"> [utools-funtime](https://github.com/farfarfun-utools/utools-funtime) | **[分秒必争](https://github.com/farfarfun-utools/utools-funtime)** — 离线时间助手，支持多任务倒计时与番茄钟、毫秒秒表、置顶桌面悬浮小窗、28 城世界时钟与跨时区会议推演 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) |
+| <img src="https://farfarfun.com/brand/png/mark/funsecret-64.png" alt="" width="40"> [utools-funsecret](https://github.com/farfarfun-utools/utools-funsecret) | **[密藏随行](https://github.com/farfarfun-utools/utools-funsecret)** — 基于原生 `funsecret` 命令行的本地多级分类加密密钥管理，支持分类树、主框快捷复制、剪贴板自动清空与 SQLite/MySQL/PG 同步 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) ![TS](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square) ![Rust](https://img.shields.io/badge/funsecret-Rust_CLI-dea584?style=flat-square) |
 | [utools-plugins](https://github.com/farfarfun-utools/utools-plugins) | **插件总索引** — 汇总本组织全部插件的导航表与安装方式，可由此入口选择插件 | — |
 
 各插件提供对应的 AI/MCP 工具；工具清单、调用行为和数据边界见各插件 README。第三方 Agent 需由用户开启 uTools MCP 服务。
@@ -59,6 +60,7 @@
 - `utools-funcolor` 的屏幕取色、图片主色板提取、色值转换、色阶配色、渐变与对比度/色盲模拟完全在本机离线完成，不联网也不上传图片；仅在本机保存收藏夹、取色历史与主题偏好
 - `utools-funmeme` 的梗图加字、文字表情生成、内置模板与 Emoji/颜文字库完全在本机离线完成；仅在用户手动触发「联网拉取」时访问所选公开接口（Imgflip/GIPHY/Tenor/自定义 HTTPS 接口），可选 API Key 仅存本机
 - `utools-funtime` 的倒计时、番茄钟、秒表、桌面悬浮小窗、世界时钟与时间推算完全在本机离线完成，不联网也不上传数据
+- `utools-funsecret` 所有密钥仅保存在本机 `funsecret` 数据库（默认 `~/.secret/.funsecret.db`，权限 `0600`），绝不写入 uTools 云同步数据库；仅在用户手动触发外部数据库 `save`/`load` 时连接指定目标库
 
 ## 🗂️ 其他 farfarfun 组织
 
